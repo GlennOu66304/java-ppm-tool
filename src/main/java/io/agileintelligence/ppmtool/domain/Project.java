@@ -53,12 +53,23 @@ public class Project {
 
     }
 
+// projectIdentifier
+public String getProjectIdentifier() {
+    return projectIdentifier;
+
+}
+
+public void setProjectIdentifier(String projectIdentifier) {
+    this.projectIdentifier = projectIdentifier;
+
+}
+    // created_At
     @PrePersist
     protected void onCreate() {
         this.created_At = new Date();
 
     }
-
+//  updated_At
     @PreUpdate
     protected void onUpdate() {
         this.updated_At = new Date();
