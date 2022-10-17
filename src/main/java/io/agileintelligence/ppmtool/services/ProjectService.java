@@ -24,7 +24,7 @@ public class ProjectService {
 
     }
 
-    public  Project findProjectByProjectIdentifier(String projectId) {
+    public Project findProjectByProjectIdentifier(String projectId) {
         Project project = projectRepository.findByProjectIdentifier(projectId.toUpperCase());
 
         if (project == null) {
@@ -34,5 +34,9 @@ public class ProjectService {
 
         return project;
 
+    }
+
+    public Iterable<Project> findAllProjects() {
+        return projectRepository.findAll();
     }
 }
