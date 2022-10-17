@@ -26,14 +26,15 @@ public class ProjectController {
     @PostMapping("")
     public ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidation.mapValidationServiceEntity(result);
-        if (errorMap!=null) return errorMap;
+        if (errorMap != null)
+            return errorMap;
         Project project1 = projectService.saveOrUpdateProject(project);
         return new ResponseEntity<Project>(project1, HttpStatus.CREATED);
     }
 
     @GetMapping("/{projectId}")
-    public ResponseEntity<?> getProjectByProjectId(@PathVariable String projectId ){
-       Project project = ProjectService.findProjectByProjectIdentifier(projectId);
-return new ResponseEntity<Project>(project, HttpStatus.OK);
+    public ResponseEntity<?> getProjectById(@PathVariable String projectId) {
+        Project project = projectService.findProjectByProjectIdentifier(projectId);
+        return new ResponseEntity<Project>(project, HttpStatus.OK);
     }
 }
